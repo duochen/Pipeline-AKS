@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: mvc
-        image: duochen/pipeline-aspnet-core-aks-app:#$(Build.BuildId)#
+        image: duochen/pipeline-aspnet-core-aks-app:#{Build.BuildId}#
         ports:
         - containerPort: 80
         resources:
