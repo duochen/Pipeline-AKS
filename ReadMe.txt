@@ -28,6 +28,11 @@ Note: No .yml files for local deployment
 
 
 ***********After the Deployment of Application on AKS Cluster***********
+# Create AKS Cluster
+Resource Group: aks-k8s-rg
+Kubernetes Service: aks-k8s-cluster
+Kubernetes Version: 1.23.8
+
 # View the dashboard from CLI
 > az aks get-credentials --resource-group aks-k8s-rg  --name aks-k8s-cluster  --subscription "Visual Studio Enterprise"
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard  
