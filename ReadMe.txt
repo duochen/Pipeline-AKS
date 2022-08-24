@@ -27,4 +27,23 @@ Note: No .yml files for local deployment
 
 
 
+***********After the Deployment of Application on AKS Cluster***********
+# View the dashboard from CLI
+> az aks get-credentials --resource-group aks-k8s-rg  --name aks-k8s-cluster  --subscription "Visual Studio Enterprise"
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard  
+> az aks browse --resource-group aks-k8s-rg  --name aks-k8s-cluster  --subscription "Visual Studio Enterprise"
 
+# View the dashboard from Portal
+Kubernetes service | Kubernetes resources | Workloads
+
+# Get services
+> kubectl get services
+NAME            TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)          AGE
+kubernetes      ClusterIP      10.0.0.1      <none>          443/TCP          73m
+mssql-service   NodePort       10.0.171.9    <none>          1433:30201/TCP   29m
+mvc-service     LoadBalancer   10.0.254.83   20.221.114.47   80:30309/TCP     19m
+
+# View application from browser
+> http://20.221.114.47/
+
+Get EXTERNAL IP from mvc-service
